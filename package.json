@@ -1,0 +1,26 @@
+{
+  "name": "travel_agency_api",
+  "version": "1.0.0",
+  "description": "geosmthidkapi",
+  "main": "index.ts",
+  "repository": "https://github.com/claudiolopezayala/travelAgencyApi.git",
+  "author": "claudiolopezayala <claudioalejandro4@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "rimraf .dist && tsc",
+    "watch": "nodemon src/index.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "env-var": "^7.5.0",
+    "express": "^4.21.1",
+    "http-status-codes": "^2.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "nodemon": "^3.1.7"
+  }
+}
