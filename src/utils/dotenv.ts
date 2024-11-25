@@ -5,4 +5,5 @@ export const envs ={
   PORT: env.get("PORT").required().asPortNumber(),
   MONGO_URL: env.get("MONGO_URL").required().asString(),
   MONGO_DB: env.get("MONGO_DB").required().asString(),
+  SALT: env.get("SALT").required().asInt(),
 }
