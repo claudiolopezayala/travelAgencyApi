@@ -9,7 +9,8 @@
   "private": false,
   "scripts": {
     "build": "rimraf .dist && tsc",
-    "watch": "nodemon src/index.ts"
+    "watch": "nodemon src/index.ts",
+    "docker": "docker-compose down && docker-compose up -d"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
