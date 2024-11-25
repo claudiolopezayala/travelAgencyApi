@@ -9,6 +9,14 @@ const visitSchema = new mongoose.Schema({
     description: {
       type: String,
       required: false
+    },
+    lat: {
+      type: Number,
+      required: true
+    },
+    lng: {
+      type: Number,
+      required: true
     }
   }
 })
@@ -28,9 +36,10 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  varificationTokenExpiration:{
-    type: Date,
-    required: true
+  tokenHasBeenSent:{
+    type: Boolean,
+    required: false,
+    default: false
   },
   visit:[visitSchema]
 })
