@@ -4,6 +4,7 @@ import { UserModel } from "../model/user-model";
 import { generate } from "generate-password";
 import { hash, compare } from "bcrypt";
 import { envs } from "../utils/dotenv";
+import { EmailService } from "../utils/mailService";
 
 export const signUp = async (req: Request, res: Response) : Promise<any> => {
   try {
@@ -37,6 +38,13 @@ export const signUp = async (req: Request, res: Response) : Promise<any> => {
       password: saltedPassword,
       verificationToken: token,
       tokenHasBeenSent: false,
+    });
+
+    const emailService = new EmailService();
+    await emailService.sendEmail({
+      to: envs.MAILER_EMAIL,
+      subject: 'Cuenta creada correctamente',
+      htmlBody: `Code: ${token}`
     });
 
     res
