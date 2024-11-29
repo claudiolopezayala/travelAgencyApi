@@ -40,9 +40,6 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  tokenHasBeenSent:{
-    type: Boolean,
-  },
   visit:[visitSchema]
 })
 
