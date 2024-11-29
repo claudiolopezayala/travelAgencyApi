@@ -1,9 +1,10 @@
 import { Router } from "express";
-import { logIn, signUp } from "../controller/auth-controller";
+import { logIn, signUp, verifyEmail } from "../controller/auth-controller";
 
-const authRouter = Router()
+const authRouter = Router();
 
-authRouter.post("/logIn", logIn)
-authRouter.use("/signUp", signUp)
+authRouter.post("/logIn", logIn);
+authRouter.post("/signUp", signUp);
+authRouter.get("/verify-email/:token", verifyEmail);
 
-export default authRouter
+export default authRouter;

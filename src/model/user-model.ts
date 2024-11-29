@@ -36,6 +36,10 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
+  isVerified:{
+    type: Boolean,
+    default: false
+  },
   tokenHasBeenSent:{
     type: Boolean,
   },
