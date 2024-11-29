@@ -91,7 +91,7 @@ export const logIn = async (req: Request, res: Response) : Promise<any> => {
         .json({ message: "Invalid email or password" });
     }
 
-    res.status(StatusCodes.OK).json({ message: "Logged in successfully" });
+    res.status(StatusCodes.OK).json({ message: "Logged in successfully", payload: user._id });
   } catch (error: any) {
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: error.message });
   }
