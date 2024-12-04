@@ -4,7 +4,17 @@ import { UserModel } from "../model/user-model";
 
 export const getUsersTrip = async (req: Request, res: Response) : Promise<any> => {
   try {
-    //TODO
+    const { id_user } = req.params;
+
+    const user = await UserModel.findById(id_user);
+
+    if (!user) {
+      return res
+        .status(StatusCodes.NOT_FOUND)
+        .json({ message: "User not found" });
+    }
+
+    res.status(StatusCodes.OK).json({ trips: user.visit });
   } catch (error: any) {
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: error.message });
   }
