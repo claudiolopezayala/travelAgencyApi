@@ -1,23 +1,21 @@
 import mongoose, { Schema } from "mongoose";
 
 const visitSchema = new mongoose.Schema({
-  type: {
-    place: {
-      type: String,
-      required: true
-    },
-    description: {
-      type: String,
-      required: false
-    },
-    lat: {
-      type: Number,
-      required: true
-    },
-    lng: {
-      type: Number,
-      required: true
-    }
+  place: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: false
+  },
+  lat: {
+    type: Number,
+    required: true
+  },
+  lng: {
+    type: Number,
+    required: true
   }
 })
 
