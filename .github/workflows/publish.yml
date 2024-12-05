@@ -1,0 +1,27 @@
+name: Docker Build & Publish
+ 
+on:
+   push:
+    branches:
+      - main
+ 
+jobs:
+    build-and-push:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+ 
+            - name: Login to Docker Hub
+              run: docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{secrets.DOCKER_PASSWORD}}"
+ 
+            - name: Build Docker Image
+              run: docker build -t claudio883/tripapi:${{ github.sha }} .
+ 
+            - name: Tag Latest
+              run: docker tag claudio883/tripapi:${{ github.sha }} claudio883/tripapi:latest
+ 
+            - name: Push Docker Image
+              run: |
+                docker push claudio883/tripapi:${{ github.sha }}
+                docker push claudio883/tripapi:latest
