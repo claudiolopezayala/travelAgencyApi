@@ -6,6 +6,35 @@ import { hash, compare } from "bcrypt";
 import { envs } from "../utils/dotenv";
 import { EmailService } from "../utils/mailService";
 
+/**
+ * @swagger
+ * /auth/signUp:
+ *   post:
+ *     summary: Registrarse
+ *     tags:
+ *       - Autenticación
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 format: email
+ *               password:
+ *                 type: string
+ *                 format: password
+ *     responses:
+ *       201:
+ *         description: Usuario registrado exitosamente
+ *       400:
+ *         description: Solicitud incorrecta
+ */
 export const signUp = async (req: Request, res: Response) : Promise<any> => {
   try {
     const { email, password } = req.body;
@@ -55,6 +84,26 @@ export const signUp = async (req: Request, res: Response) : Promise<any> => {
   }
 };
 
+/**
+ * @swagger
+ * /auth/verify-email/{token}:
+ *   get:
+ *     summary: Verificar correo electrónico
+ *     tags:
+ *       - Autenticación
+ *     parameters:
+ *       - name: token
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Token de verificación de correo electrónico
+ *     responses:
+ *       200:
+ *         description: Correo electrónico verificado exitosamente
+ *       400:
+ *         description: Solicitud incorrecta
+ */
 export const verifyEmail = async (req: Request, res: Response) : Promise<any> => {
   try {
     const { token } = req.params;
@@ -75,6 +124,35 @@ export const verifyEmail = async (req: Request, res: Response) : Promise<any> =>
   }
 };
 
+/**
+ * @swagger
+ * /auth/logIn:
+ *   post:
+ *     summary: Iniciar sesión
+ *     tags:
+ *       - Autenticación
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 format: email
+ *               password:
+ *                 type: string
+ *                 format: password
+ *     responses:
+ *       200:
+ *         description: Sesión iniciada exitosamente
+ *       400:
+ *         description: Solicitud incorrecta
+ */
 export const logIn = async (req: Request, res: Response) : Promise<any> => {
   try {
     const { email, password } = req.body;
