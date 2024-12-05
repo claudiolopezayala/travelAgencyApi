@@ -29,7 +29,7 @@ export const swaggerOptions = {
         description: "App server",
       },
       {
-        url: "http://localhost:8080/",
+        url: "http://localhost:3000/",
         description: "Local server",
       },
     ],

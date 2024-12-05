@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  tavel:
+  travelapp:
     build: .
     container_name: trip-api
     env_file:
