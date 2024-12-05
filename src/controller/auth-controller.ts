@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { UserModel } from "../model/user-model";
 import { generate } from "generate-password";
-import { hash, compare } from "bcrypt";
+import { hash, compare } from "bcryptjs";
 import { envs } from "../utils/dotenv";
 import { EmailService } from "../utils/mailService";
 

@@ -1,6 +1,15 @@
 version: '3.8'
 
 services:
+  tavel:
+    build: .
+    container_name: trip-api
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
   mongo:
     image: mongo
     container_name: travel_mongo
